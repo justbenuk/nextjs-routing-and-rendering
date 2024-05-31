@@ -17,7 +17,7 @@ const newsItemSlug = params.slug
 
   return (
     <div className="fullscreen-image">
-      <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} width={1200} height={1200}/>
+      <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} width={1200} height={800}/>
     </div>
   )
 }

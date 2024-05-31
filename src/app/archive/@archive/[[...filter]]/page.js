@@ -24,7 +24,7 @@ export default function FilteredNewsPage({ params }) {
   }
 
   // get the news for the month and year
-  if(selectedYear && selectedMonth){
+  if (selectedYear && selectedMonth) {
     news = getNewsForYearAndMonth(selectedYear, selectedMonth)
     links = []
 
@@ -37,8 +37,13 @@ export default function FilteredNewsPage({ params }) {
     newsContent = <NewsList newsItems={news} />
   }
 
-  console.log(filter)
-
+  if (
+    (selectedYear && !getAvailableNewsYears().includes(+selectedYear)) || 
+    (selectedMonth && !getAvailableNewsMonths(selectedYear).includes(+selectedMonth))
+  ) {
+    throw new Error('Invalid Filter')
+  }
+  
   return (
     <>
       <header id='archive-header'>
